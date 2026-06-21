@@ -49,7 +49,11 @@ def update_note(notes_id:int, noteupdate: CreateNote):
 
 @app.delete("/notes/{notes_id")
 def deletenote(notes_id:int):
-    pass
+    for note in notes:
+        if note["id"] == notes_id:
+            notes.remove(note)
+        return ("Note deleted")
+    raise HTTPException(status_code=404, detail="Note not found")
 
 @app.get("/notes")
 def allnotes():
