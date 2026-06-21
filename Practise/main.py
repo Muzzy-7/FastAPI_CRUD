@@ -57,5 +57,5 @@ def deletenote(notes_id:int):
 
 @app.get("/notes")
 def allnotes():
-        pass
+        return notes
     
